@@ -690,7 +690,7 @@
             <div class="feedback-meta">
               <span><i></i><span data-i18n="feedback.meta1">Short and specific is perfect.</span></span>
               <span><i></i><span data-i18n="feedback.meta2">No account needed.</span></span>
-              <span><i></i><span data-i18n="feedback.meta3">Supabase connection will be added later.</span></span>
+              <span><i></i><span data-i18n="feedback.meta3">Stored securely in Supabase.</span></span>
             </div>
           </article>
 
@@ -698,9 +698,9 @@
             <div class="feedback-panel-top">
               <div>
                 <h3 class="feedback-panel-title" data-i18n="feedback.formTitle">Leave a note.</h3>
-                <span class="feedback-demo-badge" data-i18n="feedback.demoBadge">DEMO MODE · NO BACKEND YET</span>
+                <span class="feedback-demo-badge" data-i18n="feedback.demoBadge">LIVE MODE · SUPABASE</span>
               </div>
-              <div class="feedback-status"><span class="feedback-status-dot"></span><span data-i18n="feedback.status">SUPABASE / NOT CONFIGURED</span></div>
+              <div class="feedback-status"><span class="feedback-status-dot"></span><span data-i18n="feedback.status">SUPABASE / CONNECTED</span></div>
             </div>
 
             <form class="feedback-form" id="feedbackForm">
@@ -736,7 +736,7 @@
                 <div class="feedback-status-text" id="feedbackStatusText" aria-live="polite"></div>
               </div>
             </form>
-            <div class="feedback-note" data-i18n="feedback.note">Today this form runs in local demo mode so the page stays publishable without credentials. Later, add only your Supabase project URL and publishable key in the marked config block; never place a secret or service-role key in this HTML.</div>
+            <div class="feedback-note" data-i18n="feedback.note">Your feedback is sent directly from this page to my Supabase feedback database. No account is required. Only the public publishable key is used here; secret or service-role keys never belong in this HTML.</div>
           </div>
         </div>
       </div>
@@ -812,13 +812,13 @@
       'nav.about':'About','nav.interests':'Interests','nav.feedback':'Feedback','nav.contact':'Contact','nav.cta':'Get in touch',
       'feedback.kicker':'Feedback','feedback.title':'Tell me what you think.','feedback.intro':'This is a small feedback channel for the site. Your note helps me see what works, what feels unclear, and what should change next.',
       'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'Make the next version better.','feedback.copy':'You do not need to write much. A specific sentence about the layout, content, interaction, or mobile experience is already useful.',
-      'feedback.meta1':'Short and specific is perfect.','feedback.meta2':'No account needed.','feedback.meta3':'Supabase connection will be added later.',
-      'feedback.formTitle':'Leave a note.','feedback.demoBadge':'DEMO MODE · NO BACKEND YET','feedback.status':'SUPABASE / NOT CONFIGURED',
+      'feedback.meta1':'Short and specific is perfect.','feedback.meta2':'No account needed.','feedback.meta3':'Stored securely in Supabase.',
+      'feedback.formTitle':'Leave a note.','feedback.demoBadge':'LIVE MODE · SUPABASE','feedback.status':'SUPABASE / CONNECTED',
       'feedback.form.nickname':'Nickname','feedback.form.relationship':'Relationship','feedback.form.relationship.placeholder':'Choose one','feedback.form.relationship.friend':'Friend','feedback.form.relationship.classmate':'Classmate','feedback.form.relationship.teacher':'Teacher','feedback.form.relationship.stranger':'Just visiting',
       'feedback.form.device':'Device','feedback.form.device.placeholder':'Choose one','feedback.form.device.desktop':'Desktop','feedback.form.device.mobile':'Mobile','feedback.form.device.tablet':'Tablet',
       'feedback.form.message':'Your feedback','feedback.form.messagePlaceholder':'What should I keep, change, or improve?','feedback.form.submit':'Send feedback ↗',
-      'feedback.note':'Today this form runs in local demo mode so the page stays publishable without credentials. Later, add only your Supabase project URL and publishable key in the marked config block; never place a secret or service-role key in this HTML.',
-      'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Demo submission saved in this browser. Supabase is not configured yet.','feedback.status.error':'Something went wrong. Please try again.',
+      'feedback.note':'Your feedback is sent directly from this page to my Supabase feedback database. No account is required. Only the public publishable key is used here; secret or service-role keys never belong in this HTML.',
+      'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Feedback sent successfully.','feedback.status.error':'Something went wrong. Please try again.',
 
       'hero.kicker':'Biomedical Engineering · BICs','hero.h1':'CURIOUS ABOUT BIOLOGY. DRAWN TO COMPUTATION.',
       'hero.sub':"I'm Shen Zeyu — Jeremy. Still finding my footing in biomedical engineering, and just as happy talking badminton as biology.",'hero.signature':'Curious about biology. Drawn to computation.',
@@ -848,13 +848,13 @@
       'nav.about':'关于','nav.interests':'兴趣','nav.feedback':'反馈','nav.contact':'联系','nav.cta':'联系我',
       'feedback.kicker':'反馈','feedback.title':'告诉我你的想法。','feedback.intro':'这是一个给网站访客的反馈入口。你的留言会帮助我判断哪些地方有效、哪些地方不清晰，以及下一版应该改什么。',
       'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'一起把下一版做得更好。','feedback.copy':'不用写很多。一句具体的布局、内容、交互或移动端体验反馈，对我来说就已经很有用了。',
-      'feedback.meta1':'简短、具体就很好。','feedback.meta2':'不需要注册。','feedback.meta3':'Supabase 后台会在之后接入。',
-      'feedback.formTitle':'留下一句话。','feedback.demoBadge':'演示模式 · 暂无后台','feedback.status':'SUPABASE / 尚未配置',
+      'feedback.meta1':'简短、具体就很好。','feedback.meta2':'不需要注册。','feedback.meta3':'内容会安全保存到 Supabase。',
+      'feedback.formTitle':'留下一句话。','feedback.demoBadge':'实时模式 · SUPABASE','feedback.status':'SUPABASE / 已连接',
       'feedback.form.nickname':'昵称','feedback.form.relationship':'你和我的关系','feedback.form.relationship.placeholder':'请选择','feedback.form.relationship.friend':'朋友','feedback.form.relationship.classmate':'同学','feedback.form.relationship.teacher':'老师','feedback.form.relationship.stranger':'路过看看',
       'feedback.form.device':'设备','feedback.form.device.placeholder':'请选择','feedback.form.device.desktop':'电脑','feedback.form.device.mobile':'手机','feedback.form.device.tablet':'平板',
       'feedback.form.message':'你的反馈','feedback.form.messagePlaceholder':'哪些地方应该保留、修改或继续优化？','feedback.form.submit':'发送反馈 ↗',
-      'feedback.note':'今天先使用本地演示模式，因此不需要任何密钥也可以直接发布到 GitHub Pages。之后只需在标记好的配置区填入 Supabase 项目 URL 和 publishable key；绝不要把 secret key 或 service-role key 放进这个 HTML。',
-      'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'演示提交已保存在当前浏览器中，Supabase 还没有配置。','feedback.status.error':'提交时出了点问题，请再试一次。',
+      'feedback.note':'你的反馈会直接从网页发送到我的 Supabase 反馈数据库，无需注册。这里只使用公开的 publishable key；secret key 和 service-role key 绝不会放进这个 HTML。',
+      'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'反馈发送成功。','feedback.status.error':'提交时出了点问题，请再试一次。',
 
       'hero.kicker':'生物医学工程 · BICs方向','hero.h1':'对生命保持好奇，对计算保持探索。',
       'hero.sub':'我是沈泽宇，Jeremy。正在生物医学工程的世界里寻找自己的方向，也同样喜欢聊羽毛球、游戏和生活。','hero.signature':'对生命保持好奇，对计算保持探索。',
@@ -1250,20 +1250,17 @@
   bgmAudio.addEventListener('play', () => updateBgmUI(true));
   updateBgmUI(false);
 
-  /* ================= Feedback — Supabase scaffold =================
-     Zero-config today:
-       - SUPABASE_CONFIG stays empty, so the page works on GitHub Pages
-         without exposing any credential.
-       - Submissions are stored locally in this browser for demo purposes only.
-     Later:
-       - Fill in only url + publishableKey below.
-       - The code will POST directly to /rest/v1/feedback.
-       - Use RLS so anonymous clients can INSERT only.
+  /* ================= Feedback — Supabase =================
+     Live configuration:
+       - Uses the public Supabase project URL + publishable key.
+       - Submissions POST directly to /rest/v1/feedback.
+       - RLS allows anonymous clients to INSERT only.
        - Never add a service_role / secret key here.
   ===================================================================== */
   const SUPABASE_CONFIG = {
-    url: '',
-    publishableKey: ''
+    // Public client configuration. RLS protects the feedback table.
+    url: 'https://vjwmvlkmkhaaxyqrskkn.supabase.co',
+    publishableKey: 'sb_publishable_Ps-hfIyNZsZz21DFfkP8OA_ouqsOgXx'
   };
 
   const feedbackForm = document.getElementById('feedbackForm');
