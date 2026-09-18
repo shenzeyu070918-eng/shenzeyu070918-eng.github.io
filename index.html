@@ -331,8 +331,15 @@
   .feedback-form .field select{width:100%;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);padding:13px 14px;outline:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text) 50%),linear-gradient(135deg,var(--text) 50%,transparent 50%);background-position:calc(100% - 18px) 19px,calc(100% - 13px) 19px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
   .feedback-form .field select:focus{border-color:var(--text);box-shadow:0 0 0 4px color-mix(in srgb,var(--yellow) 45%,transparent)}
   .feedback-form .field textarea{min-height:165px}
+  .feedback-prompts{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 2px}
+  .feedback-prompt{border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);padding:8px 10px;font:800 10px/1 Inter,"Noto Sans SC",sans-serif;letter-spacing:.03em;cursor:pointer;transition:transform .2s var(--ease),background .2s ease,border-color .2s ease}
+  .feedback-prompt:hover,.feedback-prompt:focus-visible{transform:translateY(-2px);border-color:var(--text);background:var(--yellow);outline:none}
+  .feedback-message-meta{display:flex;justify-content:space-between;gap:12px;margin-top:7px;color:var(--muted);font-size:10px;line-height:1.4}
+  .feedback-char-count{font-variant-numeric:tabular-nums;white-space:nowrap}
   .feedback-submit{margin-top:5px}
   .feedback-status-text{min-height:20px;color:var(--muted);font-size:12px;margin-top:10px;line-height:1.6}
+  .feedback-status-text.is-success{color:var(--text);font-weight:700}
+  .feedback-status-text.is-error{color:#a52a2a;font-weight:700}
   .feedback-note{margin-top:18px;color:var(--muted);font-size:10px;line-height:1.65;max-width:62ch}
   .feedback-demo-badge{display:inline-flex;margin-top:13px;padding:6px 9px;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
   @media (max-width:960px){
@@ -729,7 +736,14 @@
               </div>
               <div class="field full">
                 <label for="feedback-message" data-i18n="feedback.form.message">Your feedback</label>
+                <div class="feedback-prompts" id="feedbackPrompts" aria-label="Feedback prompts">
+                  <button class="feedback-prompt" type="button" data-i18n="feedback.prompt.visual">Visual &amp; layout</button>
+                  <button class="feedback-prompt" type="button" data-i18n="feedback.prompt.content">Content &amp; clarity</button>
+                  <button class="feedback-prompt" type="button" data-i18n="feedback.prompt.interaction">Interaction</button>
+                  <button class="feedback-prompt" type="button" data-i18n="feedback.prompt.mobile">Mobile experience</button>
+                </div>
                 <textarea id="feedback-message" name="feedback" maxlength="1200" required data-i18n-placeholder="feedback.form.messagePlaceholder" placeholder="What should I keep, change, or improve?"></textarea>
+                <div class="feedback-message-meta"><span data-i18n="feedback.form.hint">Pick a prompt or write freely.</span><span class="feedback-char-count" id="feedbackCharCount">0 / 1200</span></div>
               </div>
               <div class="field full">
                 <button class="btn btn-primary feedback-submit btn-slice" type="submit"><span data-i18n="feedback.form.submit">Send feedback ↗</span></button>
@@ -817,8 +831,9 @@
       'feedback.form.nickname':'Nickname','feedback.form.relationship':'Relationship','feedback.form.relationship.placeholder':'Choose one','feedback.form.relationship.friend':'Friend','feedback.form.relationship.classmate':'Classmate','feedback.form.relationship.teacher':'Teacher','feedback.form.relationship.stranger':'Just visiting',
       'feedback.form.device':'Device','feedback.form.device.placeholder':'Choose one','feedback.form.device.desktop':'Desktop','feedback.form.device.mobile':'Mobile','feedback.form.device.tablet':'Tablet',
       'feedback.form.message':'Your feedback','feedback.form.messagePlaceholder':'What should I keep, change, or improve?','feedback.form.submit':'Send feedback ↗',
+      'feedback.form.hint':'Pick a prompt or write freely.','feedback.prompt.visual':'Visual & layout','feedback.prompt.content':'Content & clarity','feedback.prompt.interaction':'Interaction','feedback.prompt.mobile':'Mobile experience',
       'feedback.note':'Your feedback is sent directly from this page to my Supabase feedback database. No account is required. Only the public publishable key is used here; secret or service-role keys never belong in this HTML.',
-      'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Feedback sent successfully.','feedback.status.error':'Something went wrong. Please try again.',
+      'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Feedback sent successfully.','feedback.status.error':'Something went wrong. Please try again.','feedback.status.sending':'Sending…','feedback.status.success':'Thanks — your feedback was sent.','feedback.status.network':'Network issue — please check your connection and try again.','feedback.status.server':'The feedback service is temporarily unavailable. Please try again shortly.',
 
       'hero.kicker':'Biomedical Engineering · BICs','hero.h1':'CURIOUS ABOUT BIOLOGY. DRAWN TO COMPUTATION.',
       'hero.sub':"I'm Shen Zeyu — Jeremy. Still finding my footing in biomedical engineering, and just as happy talking badminton as biology.",'hero.signature':'Curious about biology. Drawn to computation.',
@@ -853,8 +868,9 @@
       'feedback.form.nickname':'昵称','feedback.form.relationship':'你和我的关系','feedback.form.relationship.placeholder':'请选择','feedback.form.relationship.friend':'朋友','feedback.form.relationship.classmate':'同学','feedback.form.relationship.teacher':'老师','feedback.form.relationship.stranger':'路过看看',
       'feedback.form.device':'设备','feedback.form.device.placeholder':'请选择','feedback.form.device.desktop':'电脑','feedback.form.device.mobile':'手机','feedback.form.device.tablet':'平板',
       'feedback.form.message':'你的反馈','feedback.form.messagePlaceholder':'哪些地方应该保留、修改或继续优化？','feedback.form.submit':'发送反馈 ↗',
+      'feedback.form.hint':'可先选择一个主题，也可以直接写。','feedback.prompt.visual':'视觉与布局','feedback.prompt.content':'内容与清晰度','feedback.prompt.interaction':'交互体验','feedback.prompt.mobile':'移动端体验',
       'feedback.note':'你的反馈会直接从网页发送到我的 Supabase 反馈数据库，无需注册。这里只使用公开的 publishable key；secret key 和 service-role key 绝不会放进这个 HTML。',
-      'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'反馈发送成功。','feedback.status.error':'提交时出了点问题，请再试一次。',
+      'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'反馈发送成功。','feedback.status.error':'提交时出了点问题，请再试一次。','feedback.status.sending':'正在发送…','feedback.status.success':'谢谢，你的反馈已经发送。','feedback.status.network':'网络连接似乎有问题，请检查后重试。','feedback.status.server':'反馈服务暂时不可用，请稍后再试。',
 
       'hero.kicker':'生物医学工程 · BICs方向','hero.h1':'对生命保持好奇，对计算保持探索。',
       'hero.sub':'我是沈泽宇，Jeremy。正在生物医学工程的世界里寻找自己的方向，也同样喜欢聊羽毛球、游戏和生活。','hero.signature':'对生命保持好奇，对计算保持探索。',
@@ -1266,6 +1282,31 @@
   const feedbackForm = document.getElementById('feedbackForm');
   const feedbackStatusText = document.getElementById('feedbackStatusText');
   const feedbackSubmit = feedbackForm ? feedbackForm.querySelector('button[type="submit"]') : null;
+  const feedbackMessage = document.getElementById('feedback-message');
+  const feedbackDevice = document.getElementById('feedback-device');
+  const feedbackCharCount = document.getElementById('feedbackCharCount');
+  const feedbackPrompts = document.getElementById('feedbackPrompts');
+
+  function updateFeedbackCount(){
+    if(feedbackMessage && feedbackCharCount) feedbackCharCount.textContent = `${feedbackMessage.value.length} / ${feedbackMessage.maxLength}`;
+  }
+
+  function guessFeedbackDevice(){
+    const agent = navigator.userAgent || '';
+    if(/ipad|tablet|playbook|silk/i.test(agent)) return 'tablet';
+    if(/mobi|android|iphone|ipod/i.test(agent)) return 'mobile';
+    return 'desktop';
+  }
+
+  function setFeedbackDeviceDefault(){
+    if(feedbackDevice && !feedbackDevice.value) feedbackDevice.value = guessFeedbackDevice();
+  }
+
+  function setFeedbackStatus(key, state=''){
+    if(!feedbackStatusText) return;
+    feedbackStatusText.textContent = translations[currentLang][key] || '';
+    feedbackStatusText.className = `feedback-status-text${state ? ` is-${state}` : ''}`;
+  }
 
   function isSupabaseConfigured(){
     return Boolean(SUPABASE_CONFIG.url.trim() && SUPABASE_CONFIG.publishableKey.trim());
@@ -1295,9 +1336,25 @@
 
   function resetFeedbackForm(){
     feedbackForm.reset();
+    setFeedbackDeviceDefault();
+    updateFeedbackCount();
   }
 
   if(feedbackForm){
+    setFeedbackDeviceDefault();
+    updateFeedbackCount();
+    feedbackMessage?.addEventListener('input',()=>{
+      updateFeedbackCount();
+      if(feedbackStatusText?.textContent) setFeedbackStatus('');
+    });
+    feedbackPrompts?.addEventListener('click',(event)=>{
+      const prompt = event.target.closest('.feedback-prompt');
+      if(!prompt || !feedbackMessage) return;
+      const prefix = `${prompt.textContent.trim()}: `;
+      if(!feedbackMessage.value.trim()) feedbackMessage.value = prefix;
+      feedbackMessage.focus();
+      updateFeedbackCount();
+    });
     feedbackForm.addEventListener('submit', async (e)=>{
       e.preventDefault();
       if(feedbackSubmit?.disabled) return;
@@ -1308,7 +1365,7 @@
       const feedback = document.getElementById('feedback-message').value.trim();
 
       if(!nickname || !relationship || !device || !feedback){
-        feedbackStatusText.textContent = translations[currentLang]['feedback.status.empty'];
+        setFeedbackStatus('feedback.status.empty','error');
         return;
       }
 
@@ -1322,25 +1379,27 @@
 
       feedbackSubmit.disabled = true;
       feedbackSubmit.style.opacity = '.65';
-      feedbackStatusText.textContent = currentLang === 'en' ? 'Sending…' : '正在发送…';
+      feedbackForm.setAttribute('aria-busy','true');
+      setFeedbackStatus('feedback.status.sending');
 
       try{
         if(isSupabaseConfigured()){
           await submitFeedbackToSupabase(payload);
-          feedbackStatusText.textContent = currentLang === 'en'
-            ? 'Thanks — your feedback was sent.'
-            : '谢谢，你的反馈已经发送。';
+          setFeedbackStatus('feedback.status.success','success');
         }else{
           saveFeedbackLocally(payload);
-          feedbackStatusText.textContent = translations[currentLang]['feedback.status.saved'];
+          setFeedbackStatus('feedback.status.saved','success');
         }
         resetFeedbackForm();
       }catch(error){
         console.error(error);
-        feedbackStatusText.textContent = translations[currentLang]['feedback.status.error'];
+        const isNetworkError = error instanceof TypeError;
+        const isServerError = /Supabase request failed: (5\d\d|429)/.test(error.message);
+        setFeedbackStatus(isNetworkError ? 'feedback.status.network' : isServerError ? 'feedback.status.server' : 'feedback.status.error','error');
       }finally{
         feedbackSubmit.disabled = false;
         feedbackSubmit.style.opacity = '1';
+        feedbackForm.removeAttribute('aria-busy');
       }
     });
   }
