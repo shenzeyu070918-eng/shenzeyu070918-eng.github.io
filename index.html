@@ -240,7 +240,7 @@
   .field-note-body p{max-width:52ch;margin:18px 0 0;color:var(--muted);line-height:1.8;font-size:14px}
   .field-note-foot{color:var(--text)}
 
-  section{padding:115px 0;border-top:1px solid var(--line)}
+  section{padding:115px 0;border-top:1px solid var(--line);scroll-margin-top:160px}
   .section-head{display:grid;grid-template-columns:.34fr 1fr;gap:50px;align-items:end;margin-bottom:42px}
   .section-index{font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase}
   html[data-theme="dark"] .section-index{color:#91b7ff}
@@ -405,6 +405,8 @@
   .bgm-player:hover{transform:translateY(-2px)}
   .bgm-player:active{transform:translate(4px,4px);box-shadow:2px 2px 0 #050505}
   .bgm-player.is-playing{background:#ff5c36;color:#050505}
+  .bgm-player.is-unavailable{background:var(--surface-2);color:var(--muted);border-color:var(--line);box-shadow:4px 4px 0 var(--line)}
+  .bgm-player.is-unavailable .bgm-toggle{cursor:not-allowed}
   .bgm-toggle{
     width:100%;
     height:100%;
@@ -437,6 +439,7 @@
   .bgm-state{display:block;font-size:9px;letter-spacing:.12em;opacity:.65;margin-top:2px}
   .bgm-led{width:7px;height:7px;border:2px solid currentColor;border-radius:50%;background:transparent;flex:none;margin-left:auto}
   .bgm-player.is-playing .bgm-led{background:currentColor}
+  .contact-link.is-pending{cursor:not-allowed;opacity:.55}
   @media (max-width:640px){
     .bgm-player{left:14px;top:84px;min-width:132px;height:42px;padding-right:11px;box-shadow:5px 5px 0 #050505}
     .bgm-disc{width:20px;height:20px}
@@ -510,19 +513,17 @@
     </nav>
   </div>
 
-  <!-- BGM Player: replace the source path below with your own audio file URL/path -->
-  <div class="bgm-player" id="bgmPlayer" title="Play background music">
+  <!-- Add a licensed local source to #bgmAudio once Jeremy chooses a track. -->
+  <div class="bgm-player" id="bgmPlayer" title="Background music">
     <button class="bgm-toggle" id="bgmToggle" type="button" aria-pressed="false" aria-label="Play background music">
       <span class="bgm-disc" aria-hidden="true"></span>
       <span>
-        <span class="bgm-label" id="bgmLabel">Play BGM</span>
-        <span class="bgm-state">BACKGROUND MUSIC</span>
+        <span class="bgm-label" id="bgmLabel">BGM unavailable</span>
+        <span class="bgm-state" id="bgmState">ADD A TRACK TO ENABLE</span>
       </span>
       <span class="bgm-led" aria-hidden="true"></span>
     </button>
-    <audio id="bgmAudio" loop preload="none">
-      <source src="YOUR-BGM-FILE.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bgmAudio" loop preload="none"></audio>
   </div>
 
   <main id="top">
@@ -759,7 +760,7 @@
     <section id="contact">
       <div class="site-shell">
         <div class="section-head reveal">
-          <div class="section-index">04 / <span data-i18n="contact.kicker">Contact</span></div>
+          <div class="section-index">05 / <span data-i18n="contact.kicker">Contact</span></div>
           <div>
             <h2 class="section-title" data-i18n="contact.title">Say hello.</h2>
             <p class="section-intro" data-i18n="contact.intro">Have an idea, a question, or just want to say hi? Send it straight from this page.</p>
@@ -783,8 +784,8 @@
           </div>
           <div class="contact-side reveal">
             <a class="contact-link" href="mailto:shenzeyu070918@gmail.com"><span class="link-left"><span class="link-label" data-i18n="contact.rows.email">Email</span><span class="link-value">shenzeyu070918@gmail.com</span></span><span class="arrow">↗</span></a>
-            <a class="contact-link placeholder" href="https://github.com/yourusername" target="_blank" rel="noopener"><span class="link-left"><span class="link-label" data-i18n="contact.rows.github">GitHub</span><span class="link-value">github.com/yourusername</span></span><span class="arrow">↗</span></a>
-            <a class="contact-link placeholder" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener"><span class="link-left"><span class="link-label" data-i18n="contact.rows.linkedin">LinkedIn</span><span class="link-value">linkedin.com/in/yourusername</span></span><span class="arrow">↗</span></a>
+            <a class="contact-link" href="https://github.com/shenzeyu070918-eng" target="_blank" rel="noopener"><span class="link-left"><span class="link-label" data-i18n="contact.rows.github">GitHub</span><span class="link-value">github.com/shenzeyu070918-eng</span></span><span class="arrow">↗</span></a>
+            <div class="contact-link is-pending" aria-disabled="true"><span class="link-left"><span class="link-label" data-i18n="contact.rows.linkedin">LinkedIn</span><span class="link-value" data-i18n="contact.rows.linkedin.pending">Profile link pending</span></span><span class="arrow" aria-hidden="true">—</span></div>
           </div>
         </div>
       </div>
@@ -834,6 +835,7 @@
       'feedback.form.hint':'Pick a prompt or write freely.','feedback.prompt.visual':'Visual & layout','feedback.prompt.content':'Content & clarity','feedback.prompt.interaction':'Interaction','feedback.prompt.mobile':'Mobile experience',
       'feedback.note':'Your feedback is sent directly from this page to my Supabase feedback database. No account is required. Only the public publishable key is used here; secret or service-role keys never belong in this HTML.',
       'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Feedback sent successfully.','feedback.status.error':'Something went wrong. Please try again.','feedback.status.sending':'Sending…','feedback.status.success':'Thanks — your feedback was sent.','feedback.status.network':'Network issue — please check your connection and try again.','feedback.status.server':'The feedback service is temporarily unavailable. Please try again shortly.',
+      'bgm.play':'Play BGM','bgm.pause':'Pause BGM','bgm.state':'BACKGROUND MUSIC','bgm.unavailable':'BGM unavailable','bgm.unavailableState':'ADD A TRACK TO ENABLE','bgm.ariaPlay':'Play background music','bgm.ariaPause':'Pause background music','bgm.ariaUnavailable':'Background music unavailable',
 
       'hero.kicker':'Biomedical Engineering · BICs','hero.h1':'CURIOUS ABOUT BIOLOGY. DRAWN TO COMPUTATION.',
       'hero.sub':"I'm Shen Zeyu — Jeremy. Still finding my footing in biomedical engineering, and just as happy talking badminton as biology.",'hero.signature':'Curious about biology. Drawn to computation.',
@@ -856,7 +858,7 @@
       'avatar.you':'You','avatar.thinking':'Thinking…','avatar.unknown':"Honestly, I don't know enough about that yet. I don't want to make up an answer.",
       'avatar.presets.who':'Who is Jeremy?','avatar.presets.bme':'Why did you choose Intelligent Medical Engineering?','avatar.presets.interest':'What are you interested in right now?','avatar.presets.learn':'How do you learn new things?','avatar.presets.badminton':'Why do you like badminton?','avatar.presets.travel':'Why do you like travelling alone?',
       'contact.kicker':'Contact','contact.title':'Say hello.','contact.intro':'Have an idea, a question, or just want to say hi? Send it straight from this page.','contact.heading':"Let's start a conversation.",'contact.copy':'Fill in the form below. Your note will be delivered directly to my inbox.',
-      'contact.form.name':'Name','contact.form.email':'Email','contact.form.message':'Message','contact.form.submit':'Send message ↗','contact.rows.email':'Email','contact.rows.github':'GitHub','contact.rows.linkedin':'LinkedIn',
+      'contact.form.name':'Name','contact.form.email':'Email','contact.form.message':'Message','contact.form.submit':'Send message ↗','contact.rows.email':'Email','contact.rows.github':'GitHub','contact.rows.linkedin':'LinkedIn','contact.rows.linkedin.pending':'Profile link pending',
       'formStatus.empty':'Please fill in every field.','formStatus.sending':'Sending your message…','footer.text':'Jeremy Shen — Biomedical Engineering'
     },
     zh: {
@@ -871,6 +873,7 @@
       'feedback.form.hint':'可先选择一个主题，也可以直接写。','feedback.prompt.visual':'视觉与布局','feedback.prompt.content':'内容与清晰度','feedback.prompt.interaction':'交互体验','feedback.prompt.mobile':'移动端体验',
       'feedback.note':'你的反馈会直接从网页发送到我的 Supabase 反馈数据库，无需注册。这里只使用公开的 publishable key；secret key 和 service-role key 绝不会放进这个 HTML。',
       'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'反馈发送成功。','feedback.status.error':'提交时出了点问题，请再试一次。','feedback.status.sending':'正在发送…','feedback.status.success':'谢谢，你的反馈已经发送。','feedback.status.network':'网络连接似乎有问题，请检查后重试。','feedback.status.server':'反馈服务暂时不可用，请稍后再试。',
+      'bgm.play':'播放 BGM','bgm.pause':'暂停 BGM','bgm.state':'背景音乐','bgm.unavailable':'BGM 暂不可用','bgm.unavailableState':'添加音乐后即可启用','bgm.ariaPlay':'播放背景音乐','bgm.ariaPause':'暂停背景音乐','bgm.ariaUnavailable':'背景音乐暂不可用',
 
       'hero.kicker':'生物医学工程 · BICs方向','hero.h1':'对生命保持好奇，对计算保持探索。',
       'hero.sub':'我是沈泽宇，Jeremy。正在生物医学工程的世界里寻找自己的方向，也同样喜欢聊羽毛球、游戏和生活。','hero.signature':'对生命保持好奇，对计算保持探索。',
@@ -892,7 +895,7 @@
       'avatar.you':'你','avatar.thinking':'思考中…','avatar.unknown':'坦白说，我现在还没有足够的信息回答这个问题。我不想为了回答而编一个答案。',
       'avatar.presets.who':'Jeremy 是谁？','avatar.presets.bme':'为什么选择智能医学工程？','avatar.presets.interest':'你现在对什么感兴趣？','avatar.presets.learn':'你怎么学习新东西？','avatar.presets.badminton':'为什么喜欢羽毛球？','avatar.presets.travel':'为什么喜欢一个人旅行？',
       'contact.kicker':'联系','contact.title':'来打个招呼。','contact.intro':'有想法、有问题，或者单纯想打个招呼？直接在这里发给我。','contact.heading':'一起聊点什么。','contact.copy':'填写下面的表单，留言会直接送到我的邮箱。',
-      'contact.form.name':'姓名','contact.form.email':'邮箱','contact.form.message':'留言','contact.form.submit':'发送消息 ↗','contact.rows.email':'邮箱','contact.rows.github':'GitHub','contact.rows.linkedin':'LinkedIn',
+      'contact.form.name':'姓名','contact.form.email':'邮箱','contact.form.message':'留言','contact.form.submit':'发送消息 ↗','contact.rows.email':'邮箱','contact.rows.github':'GitHub','contact.rows.linkedin':'LinkedIn','contact.rows.linkedin.pending':'待补充个人主页链接',
       'formStatus.empty':'请填写所有字段。','formStatus.sending':'正在发送消息…','footer.text':'沈泽宇 Jeremy Shen — 生物医学工程'
     }
   };
@@ -1235,15 +1238,33 @@
   const bgmToggle = document.getElementById('bgmToggle');
   const bgmAudio = document.getElementById('bgmAudio');
   const bgmLabel = document.getElementById('bgmLabel');
+  const bgmState = document.getElementById('bgmState');
+  // Add a licensed local file (for example, ./assets/bgm.mp3) when a track is chosen.
+  const BGM_SOURCE = '';
+  const bgmAvailable = Boolean(BGM_SOURCE.trim());
   let bgmPlaying = false;
 
+  if(bgmAvailable) bgmAudio.src = BGM_SOURCE;
+
   function updateBgmUI(playing){
+    const copy = translations[currentLang];
     bgmPlaying = playing;
+    bgmToggle.disabled = !bgmAvailable;
+    bgmPlayer.classList.toggle('is-unavailable', !bgmAvailable);
+    if(!bgmAvailable){
+      bgmToggle.setAttribute('aria-pressed', 'false');
+      bgmToggle.setAttribute('aria-label', copy['bgm.ariaUnavailable']);
+      bgmPlayer.title = copy['bgm.ariaUnavailable'];
+      bgmLabel.textContent = copy['bgm.unavailable'];
+      bgmState.textContent = copy['bgm.unavailableState'];
+      return;
+    }
     bgmPlayer.classList.toggle('is-playing', playing);
     bgmToggle.setAttribute('aria-pressed', String(playing));
-    bgmToggle.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
-    bgmPlayer.title = playing ? 'Pause background music' : 'Play background music';
-    bgmLabel.textContent = playing ? 'Pause BGM' : 'Play BGM';
+    bgmToggle.setAttribute('aria-label', playing ? copy['bgm.ariaPause'] : copy['bgm.ariaPlay']);
+    bgmPlayer.title = playing ? copy['bgm.ariaPause'] : copy['bgm.ariaPlay'];
+    bgmLabel.textContent = playing ? copy['bgm.pause'] : copy['bgm.play'];
+    bgmState.textContent = copy['bgm.state'];
   }
 
   bgmToggle.addEventListener('click', async () => {
@@ -1264,6 +1285,7 @@
 
   bgmAudio.addEventListener('pause', () => updateBgmUI(false));
   bgmAudio.addEventListener('play', () => updateBgmUI(true));
+  window.addEventListener('jeremy:langchange', () => updateBgmUI(bgmPlaying));
   updateBgmUI(false);
 
   /* ================= Feedback — Supabase =================
