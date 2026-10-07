@@ -65,6 +65,7 @@
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth; background:var(--bg)}
+  html[lang="zh-CN"] .hero-title{line-height:1.12;letter-spacing:-.04em}
   body{
     margin:0;
     color:var(--text);
@@ -188,7 +189,7 @@
   .btn:hover{transform:translateY(-3px);box-shadow:6px 7px 0 var(--text)}
   .btn-ghost{background:var(--surface);color:var(--text)}
 
-  .hero-art-wrap{position:relative;min-height:570px;display:grid;place-items:center;isolation:isolate}
+  .hero-art-wrap{position:relative;min-height:570px;display:grid;place-items:center;isolation:isolate;overflow:clip}
   .hero-grid-back{position:absolute;inset:8% -7% 8% 4%;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:42px 42px;opacity:.45;mask-image:linear-gradient(to bottom,transparent,black 14%,black 82%,transparent)}
   .hero-panel{position:relative;width:min(100%,580px);aspect-ratio:1/1.02;background:var(--surface);border:1px solid var(--text);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;transform-style:preserve-3d;transition:transform .18s ease-out}
   .panel-top{position:absolute;left:20px;right:20px;top:18px;display:flex;justify-content:space-between;align-items:center;z-index:5;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -452,7 +453,12 @@
     .field-note-grid{grid-template-columns:1fr;gap:18px}
   }
   @media (max-width:960px){
-    .nav-links{display:none}
+    .nav{flex-wrap:wrap;padding:14px 0;gap:10px}
+    .nav-right{display:contents}
+    .nav-tools{margin-left:auto}
+    .nav-links{display:flex;order:3;width:100%;justify-content:space-between;gap:8px}
+    .nav-links a{padding:10px 6px;min-height:44px}
+    .hero-art-wrap{overflow:clip}
     .hero{grid-template-columns:1fr;gap:45px;min-height:auto;padding-top:75px}
     .hero-title{max-width:11ch}
     .hero-art-wrap{min-height:500px}
@@ -473,13 +479,15 @@
     .float-card.a{left:-4px}.float-card.b{right:-4px}
     section{padding:84px 0}
     .about-main,.info-card,.interest-card,.avatar-card,.contact-panel{padding:24px}
-    .interest-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .interest-grid{grid-template-columns:1fr;gap:14px}
     .interest-card{min-height:260px;padding:18px}
     .interest-icon{width:76px;height:76px;border-radius:22px}
     .interest-symbol{font-size:29px}
     .interest-card h3{font-size:20px}
-    .interest-card p{font-size:12px}
-    .contact-form{grid-template-columns:1fr}
+    .interest-card p{font-size:16px;line-height:1.75}
+    .field input,.field textarea,.field select{font-size:16px}
+    #avatarInput{min-width:0}
+    .contact-form,.feedback-form{grid-template-columns:1fr}
     .field.full{grid-column:auto}
     footer{flex-direction:column;gap:14px}
   }
@@ -599,11 +607,6 @@
               <div class="card-label" data-i18n="about.highlight.label">Highlight</div>
               <div class="card-value" data-i18n="about.highlight.value">Usually somewhere near a badminton court.</div>
               <div class="card-detail" data-i18n="about.highlight.detail">Between coursework and experiments, staying active is my reset button.</div>
-            </article>
-            <article class="info-card reveal">
-              <div class="card-label" data-i18n="about.city.label">City</div>
-              <div class="card-value placeholder" data-i18n="about.city.value">Add your city</div>
-              <div class="card-detail" data-i18n="about.city.detail">Placeholder kept intentionally for now.</div>
             </article>
           </div>
         </div>
@@ -785,7 +788,6 @@
           <div class="contact-side reveal">
             <a class="contact-link" href="mailto:shenzeyu070918@gmail.com"><span class="link-left"><span class="link-label" data-i18n="contact.rows.email">Email</span><span class="link-value">shenzeyu070918@gmail.com</span></span><span class="arrow">↗</span></a>
             <a class="contact-link" href="https://github.com/shenzeyu070918-eng" target="_blank" rel="noopener"><span class="link-left"><span class="link-label" data-i18n="contact.rows.github">GitHub</span><span class="link-value">github.com/shenzeyu070918-eng</span></span><span class="arrow">↗</span></a>
-            <div class="contact-link is-pending" aria-disabled="true"><span class="link-left"><span class="link-label" data-i18n="contact.rows.linkedin">LinkedIn</span><span class="link-value" data-i18n="contact.rows.linkedin.pending">Profile link pending</span></span><span class="arrow" aria-hidden="true">—</span></div>
           </div>
         </div>
       </div>
@@ -827,13 +829,13 @@
       'nav.about':'About','nav.interests':'Interests','nav.feedback':'Feedback','nav.contact':'Contact','nav.cta':'Get in touch',
       'feedback.kicker':'Feedback','feedback.title':'Tell me what you think.','feedback.intro':'This is a small feedback channel for the site. Your note helps me see what works, what feels unclear, and what should change next.',
       'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'Make the next version better.','feedback.copy':'You do not need to write much. A specific sentence about the layout, content, interaction, or mobile experience is already useful.',
-      'feedback.meta1':'Short and specific is perfect.','feedback.meta2':'No account needed.','feedback.meta3':'Stored securely in Supabase.',
-      'feedback.formTitle':'Leave a note.','feedback.demoBadge':'LIVE MODE · SUPABASE','feedback.status':'SUPABASE / CONNECTED',
+      'feedback.meta1':'Short and specific is perfect.','feedback.meta2':'No account needed.','feedback.meta3':'Sent after a successful submission.',
+      'feedback.formTitle':'Leave a note.','feedback.demoBadge':'VISITOR FEEDBACK','feedback.status':'READY TO SUBMIT',
       'feedback.form.nickname':'Nickname','feedback.form.relationship':'Relationship','feedback.form.relationship.placeholder':'Choose one','feedback.form.relationship.friend':'Friend','feedback.form.relationship.classmate':'Classmate','feedback.form.relationship.teacher':'Teacher','feedback.form.relationship.stranger':'Just visiting',
       'feedback.form.device':'Device','feedback.form.device.placeholder':'Choose one','feedback.form.device.desktop':'Desktop','feedback.form.device.mobile':'Mobile','feedback.form.device.tablet':'Tablet',
       'feedback.form.message':'Your feedback','feedback.form.messagePlaceholder':'What should I keep, change, or improve?','feedback.form.submit':'Send feedback ↗',
       'feedback.form.hint':'Pick a prompt or write freely.','feedback.prompt.visual':'Visual & layout','feedback.prompt.content':'Content & clarity','feedback.prompt.interaction':'Interaction','feedback.prompt.mobile':'Mobile experience',
-      'feedback.note':'Your feedback is sent directly from this page to my Supabase feedback database. No account is required. Only the public publishable key is used here; secret or service-role keys never belong in this HTML.',
+      'feedback.note':'Your note is saved only after a successful submission. If the service is unavailable, your text stays here so you can retry or email me at shenzeyu070918@gmail.com. Please avoid sensitive personal information.',
       'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Feedback sent successfully.','feedback.status.error':'Something went wrong. Please try again.','feedback.status.sending':'Sending…','feedback.status.success':'Thanks — your feedback was sent.','feedback.status.network':'Network issue — please check your connection and try again.','feedback.status.server':'The feedback service is temporarily unavailable. Please try again shortly.',
       'bgm.play':'Play BGM','bgm.pause':'Pause BGM','bgm.state':'BACKGROUND MUSIC','bgm.unavailable':'BGM unavailable','bgm.unavailableState':'ADD A TRACK TO ENABLE','bgm.ariaPlay':'Play background music','bgm.ariaPause':'Pause background music','bgm.ariaUnavailable':'Background music unavailable',
 
@@ -865,13 +867,13 @@
       'nav.about':'关于','nav.interests':'兴趣','nav.feedback':'反馈','nav.contact':'联系','nav.cta':'联系我',
       'feedback.kicker':'反馈','feedback.title':'告诉我你的想法。','feedback.intro':'这是一个给网站访客的反馈入口。你的留言会帮助我判断哪些地方有效、哪些地方不清晰，以及下一版应该改什么。',
       'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'一起把下一版做得更好。','feedback.copy':'不用写很多。一句具体的布局、内容、交互或移动端体验反馈，对我来说就已经很有用了。',
-      'feedback.meta1':'简短、具体就很好。','feedback.meta2':'不需要注册。','feedback.meta3':'内容会安全保存到 Supabase。',
-      'feedback.formTitle':'留下一句话。','feedback.demoBadge':'实时模式 · SUPABASE','feedback.status':'SUPABASE / 已连接',
+      'feedback.meta1':'简短、具体就很好。','feedback.meta2':'不需要注册。','feedback.meta3':'提交成功后才算送达。',
+      'feedback.formTitle':'留下一句话。','feedback.demoBadge':'访客反馈','feedback.status':'等待提交',
       'feedback.form.nickname':'昵称','feedback.form.relationship':'你和我的关系','feedback.form.relationship.placeholder':'请选择','feedback.form.relationship.friend':'朋友','feedback.form.relationship.classmate':'同学','feedback.form.relationship.teacher':'老师','feedback.form.relationship.stranger':'路过看看',
       'feedback.form.device':'设备','feedback.form.device.placeholder':'请选择','feedback.form.device.desktop':'电脑','feedback.form.device.mobile':'手机','feedback.form.device.tablet':'平板',
       'feedback.form.message':'你的反馈','feedback.form.messagePlaceholder':'哪些地方应该保留、修改或继续优化？','feedback.form.submit':'发送反馈 ↗',
       'feedback.form.hint':'可先选择一个主题，也可以直接写。','feedback.prompt.visual':'视觉与布局','feedback.prompt.content':'内容与清晰度','feedback.prompt.interaction':'交互体验','feedback.prompt.mobile':'移动端体验',
-      'feedback.note':'你的反馈会直接从网页发送到我的 Supabase 反馈数据库，无需注册。这里只使用公开的 publishable key；secret key 和 service-role key 绝不会放进这个 HTML。',
+      'feedback.note':'显示提交成功后，反馈才算送达。服务不可用时，输入内容会保留，可稍后重试或发邮件至 shenzeyu070918@gmail.com。请勿填写敏感个人信息。',
       'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'反馈发送成功。','feedback.status.error':'提交时出了点问题，请再试一次。','feedback.status.sending':'正在发送…','feedback.status.success':'谢谢，你的反馈已经发送。','feedback.status.network':'网络连接似乎有问题，请检查后重试。','feedback.status.server':'反馈服务暂时不可用，请稍后再试。',
       'bgm.play':'播放 BGM','bgm.pause':'暂停 BGM','bgm.state':'背景音乐','bgm.unavailable':'BGM 暂不可用','bgm.unavailableState':'添加音乐后即可启用','bgm.ariaPlay':'播放背景音乐','bgm.ariaPause':'暂停背景音乐','bgm.ariaUnavailable':'背景音乐暂不可用',
 
@@ -1250,6 +1252,7 @@
     const copy = translations[currentLang];
     bgmPlaying = playing;
     bgmToggle.disabled = !bgmAvailable;
+    bgmPlayer.style.display = bgmAvailable ? '' : 'none';
     bgmPlayer.classList.toggle('is-unavailable', !bgmAvailable);
     if(!bgmAvailable){
       bgmToggle.setAttribute('aria-pressed', 'false');
@@ -1336,17 +1339,23 @@
 
   async function submitFeedbackToSupabase(payload){
     const endpoint = SUPABASE_CONFIG.url.replace(/\/$/, '') + '/rest/v1/feedback';
+    const controller = new AbortController();
+    const timeout = setTimeout(()=>controller.abort(),12000);
+    try {
     const response = await fetch(endpoint, {
       method:'POST',
+      signal:controller.signal,
       headers:{
         'Content-Type':'application/json',
         'apikey':SUPABASE_CONFIG.publishableKey,
-        'Authorization':'Bearer ' + SUPABASE_CONFIG.publishableKey,
         'Prefer':'return=minimal'
       },
       body:JSON.stringify(payload)
     });
     if(!response.ok) throw new Error('Supabase request failed: ' + response.status);
+    } finally {
+      clearTimeout(timeout);
+    }
   }
 
   function saveFeedbackLocally(payload){
@@ -1409,13 +1418,12 @@
           await submitFeedbackToSupabase(payload);
           setFeedbackStatus('feedback.status.success','success');
         }else{
-          saveFeedbackLocally(payload);
-          setFeedbackStatus('feedback.status.saved','success');
+          throw new Error('Feedback service not configured');
         }
         resetFeedbackForm();
       }catch(error){
         console.error(error);
-        const isNetworkError = error instanceof TypeError;
+        const isNetworkError = error instanceof TypeError || error.name === 'AbortError';
         const isServerError = /Supabase request failed: (5\d\d|429)/.test(error.message);
         setFeedbackStatus(isNetworkError ? 'feedback.status.network' : isServerError ? 'feedback.status.server' : 'feedback.status.error','error');
       }finally{
