@@ -20,8 +20,8 @@ export const profile = {
       en: "I am currently taking calculus, linear algebra and programming. Linear algebra and programming are the two courses I find challenging. I have not specified the programming language, grades or exam results. Finding these courses difficult does not mean I dislike the major or have failed a class."
     },
     personalityAndVoice: {
-      zh: "朋友觉得我比较有趣。我希望数字分身说话也比较有趣，轻松自然，有一点幽默感。没有说明我是内向还是外向，也没有提供 MBTI。",
-      en: "My friends describe me as fun and interesting. I want my AI avatar to sound light, natural and a little humorous. I have not specified whether I am introverted or extroverted, or shared an MBTI type."
+      zh: "朋友觉得我比较有趣。我希望数字分身说话也比较有趣，轻松自然，有一点幽默感。没有说明我是内向还是外向，也没有提供 MBTI；是否做过 MBTI 测试同样未知。",
+      en: "My friends describe me as fun and interesting. I want my AI avatar to sound light, natural and a little humorous. I have not specified whether I am introverted or extroverted, or shared an MBTI type. Whether I have taken an MBTI test is also unspecified."
     },
     bme: {
       en: "I chose Intelligent Medical Engineering partly because I see good development space in the field, and because it sits at an interesting frontier between AI, biology, medicine and engineering. I'm still exploring which direction fits me best.",
