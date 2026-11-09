@@ -77,5 +77,21 @@ export async function runChecks() {
     assert.match(html,/functions\/v1\/jeremy-chat/);
     assert.doesNotMatch(html,/fake-model-key|fake-service-key/);
   });
+  await check('local previews explain the restriction and link to working online chat',async()=>{
+    const start=html.indexOf('  async function submitAvatarQuestion(');
+    const end=html.indexOf('\n  if(avatarForm)',start);
+    let message,link;
+    const context={
+      avatarBusy:false,currentLang:'zh',location:{origin:'null'},
+      translations:{zh:{'avatar.localPreview':'local preview','avatar.openOnline':'open online'}},
+      addAvatarMessage:text=>{message=text;return {appendChild:value=>{link=value;}};},
+      document:{createElement:()=>({style:{}})},
+      fetch:()=>{throw new Error('Local preview must not make an API request');},
+    };
+    await vm.runInNewContext(html.slice(start,end)+"\nsubmitAvatarQuestion('hello')",context);
+    assert.equal(message,'local preview');
+    assert.equal(link.href,'https://shenzeyu070918-eng.github.io/#avatar');
+    assert.equal(link.rel,'noopener noreferrer');
+  });
   return passed;
 }

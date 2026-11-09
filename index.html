@@ -830,6 +830,8 @@
   const translations = {
     en: {
       "avatar.error":"The chat service is temporarily unavailable. Please try again shortly.",
+      "avatar.localPreview":"This is a local preview. Open the online homepage to use AI chat.",
+      "avatar.openOnline":"Open online chat ↗",
       "avatar.timeout":"The reply took too long. Your question is kept below so you can retry.",
       "avatar.limit":"Too many requests. Please take a short break before trying again.",
       "avatar.unconfigured":"The AI service is not ready yet. Please try again later.",
@@ -873,6 +875,8 @@
     },
     zh: {
       "avatar.error":"对话服务暂时不可用，请稍后再试。",
+      "avatar.localPreview":"当前是本地预览。请打开在线主页使用 AI 对话。",
+      "avatar.openOnline":"打开在线对话 ↗",
       "avatar.timeout":"这次回答等待超时，问题已保留在输入框，可以稍后重试。",
       "avatar.limit":"提问次数较多，请稍后再试。",
       "avatar.unconfigured":"AI 服务尚未准备好，请稍后再试。",
@@ -1012,6 +1016,17 @@
     if(!clean) return;
     const lang=currentLang;
     const copy=translations[lang];
+    if(location.origin!=='https://shenzeyu070918-eng.github.io'){
+      const notice=addAvatarMessage(copy['avatar.localPreview'],'avatar error');
+      const link=document.createElement('a');
+      link.href='https://shenzeyu070918-eng.github.io/#avatar';
+      link.target='_blank';
+      link.rel='noopener noreferrer';
+      link.textContent=copy['avatar.openOnline'];
+      link.style.cssText='display:block;margin-top:8px;text-decoration:underline;font-weight:700';
+      notice.appendChild(link);
+      return;
+    }
     if(clean.length>1000){addAvatarMessage(copy['avatar.long']);return;}
     addAvatarMessage(clean,'user');
     avatarInput.value='';
