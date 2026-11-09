@@ -1,0 +1,4 @@
+[functions.jeremy-chat]
+# The handler checks the application's publishable API key and applies persistent quotas.
+# No visitor login is required for this public personal-homepage chat.
+verify_jwt = false

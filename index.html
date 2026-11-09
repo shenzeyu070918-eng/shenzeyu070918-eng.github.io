@@ -173,8 +173,9 @@
   .eyebrow::before{content:"";width:30px;height:2px;background:var(--yellow);display:inline-block}
   .hero-title{
     font-family:"Space Grotesk","Noto Sans SC",sans-serif;
-    font-size:clamp(56px,8.7vw,112px);
-    line-height:.9;letter-spacing:-.065em;font-weight:700;margin:0;max-width:8.4ch;
+    font-size:clamp(40px,5.1vw,72px);
+    line-height:1.08;letter-spacing:-.04em;font-weight:700;margin:0;max-width:none;
+    text-wrap:balance;word-break:normal;overflow-wrap:normal;
   }
   .hero-title .accent{display:inline-block;color:var(--blue);position:relative}
   html[data-theme="dark"] .hero-title .accent{color:#91b7ff}
@@ -237,7 +238,7 @@
   .field-note-card::after{content:"";position:absolute;width:170px;height:170px;border:1px solid var(--line);border-radius:50%;right:-60px;bottom:-70px}
   .field-note-top,.field-note-foot{display:flex;justify-content:space-between;gap:20px;font:800 9px/1 Inter,"Noto Sans SC",sans-serif;letter-spacing:.12em;color:var(--muted)}
   .field-note-body{max-width:700px;padding:42px 0}
-  .field-note-phrase{font:700 clamp(38px,5.5vw,70px)/.95 "Space Grotesk","Noto Sans SC",sans-serif;letter-spacing:-.055em;max-width:11ch}
+  .field-note-phrase{font:700 clamp(30px,4.5vw,60px)/1.12 "Space Grotesk","Noto Sans SC",sans-serif;letter-spacing:-.035em;max-width:100%;text-wrap:balance}
   .field-note-body p{max-width:52ch;margin:18px 0 0;color:var(--muted);line-height:1.8;font-size:14px}
   .field-note-foot{color:var(--text)}
 
@@ -245,14 +246,16 @@
   .section-head{display:grid;grid-template-columns:.34fr 1fr;gap:50px;align-items:end;margin-bottom:42px}
   .section-index{font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase}
   html[data-theme="dark"] .section-index{color:#91b7ff}
-  .section-title{font-family:"Space Grotesk","Noto Sans SC",sans-serif;font-size:clamp(40px,5.5vw,72px);line-height:.98;letter-spacing:-.055em;margin:0}
+  .section-title{font-family:"Space Grotesk","Noto Sans SC",sans-serif;font-size:clamp(30px,4.8vw,64px);line-height:1.15;letter-spacing:-.035em;margin:0;text-wrap:balance;word-break:normal;overflow-wrap:normal}
+  .section-head > div{min-width:0}
+  html[lang="zh-CN"] .section-title{letter-spacing:0;line-height:1.25}
   .section-intro{margin:17px 0 0;max-width:720px;color:var(--muted);font-size:16px;line-height:1.8}
 
   .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
   .about-main,.info-card,.interest-card,.avatar-card,.contact-panel,.contact-side{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
   .about-main{padding:34px;display:flex;flex-direction:column;justify-content:space-between;min-height:350px;position:relative;overflow:hidden}
   .about-main::after{content:"";position:absolute;width:240px;height:240px;border:1px solid var(--line);border-radius:50%;right:-70px;bottom:-90px}
-  .about-main h3{font-family:"Space Grotesk",sans-serif;font-size:34px;line-height:1.1;max-width:12ch;margin:0;letter-spacing:-.045em}
+  .about-main h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(26px,3vw,34px);line-height:1.2;max-width:100%;margin:0;letter-spacing:-.025em;text-wrap:balance}
   .about-main p{color:var(--muted);max-width:60ch;margin:24px 0 0;line-height:1.85}
   .about-signature{display:flex;align-items:center;gap:12px;margin-top:40px;font-family:"Space Grotesk",sans-serif;font-size:13px;font-weight:700}
   .signature-line{width:44px;height:2px;background:var(--yellow)}
@@ -275,22 +278,22 @@
 
   .avatar-card{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:34px;position:relative;overflow:hidden}
   .avatar-copy .status{display:inline-flex;padding:7px 10px;border:1px solid var(--line);border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-  .avatar-copy h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(34px,4vw,54px);line-height:.98;letter-spacing:-.05em;margin:24px 0 0;max-width:8ch}
+  .avatar-copy h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.4vw,46px);line-height:1.18;letter-spacing:-.03em;margin:24px 0 0;max-width:100%;text-wrap:balance}
   .avatar-copy p{color:var(--muted);max-width:48ch;line-height:1.8;margin:22px 0 0}
   .chat-ui{border:1px solid var(--line);background:var(--surface-2);border-radius:20px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px}
   .chat-head{display:flex;justify-content:space-between;font-size:11px;font-weight:800}
   .chat-dot{width:8px;height:8px;background:var(--yellow);border:1px solid var(--text);border-radius:50%;display:inline-block;margin-right:6px}
-  .chat-msg{align-self:flex-start;max-width:84%;background:var(--surface);border:1px solid var(--line);border-radius:17px 17px 17px 5px;padding:13px 14px;font-size:13px;line-height:1.6;color:var(--muted);margin-top:auto;margin-bottom:12px}
+  .chat-msg{white-space:pre-wrap;overflow-wrap:anywhere;align-self:flex-start;max-width:84%;background:var(--surface);border:1px solid var(--line);border-radius:17px 17px 17px 5px;padding:13px 14px;font-size:13px;line-height:1.6;color:var(--muted);margin-top:auto;margin-bottom:12px}
   .chat-input{display:flex;gap:8px}
   .chat-input input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:0 14px;height:44px;background:var(--surface);color:var(--text);outline:none}
   .chat-input button{height:44px;padding:0 14px;border-radius:999px;background:var(--text);color:var(--surface);font-weight:800;cursor:not-allowed;opacity:.55}
 
-  /* Digital Avatar — Phase 01: local persona, no external AI dependency */
+  /* Digital Avatar — profile-grounded DeepSeek chat */
   .avatar-card.phase1{grid-template-columns:.88fr 1.12fr}
   .avatar-copy .avatar-kicker{display:flex;align-items:center;gap:8px;margin-top:16px;color:var(--muted);font:800 10px/1 Inter,"Noto Sans SC",sans-serif;letter-spacing:.12em;text-transform:uppercase}
   .avatar-kicker .live-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);border:1px solid var(--text);display:inline-block}
   .chat-ui.phase1-chat{min-height:420px;padding:16px;background:var(--surface-2);position:relative;overflow:hidden}
-  .chat-ui.phase1-chat::after{content:"01 / LOCAL KNOWLEDGE";position:absolute;right:16px;bottom:13px;font:800 8px/1 Inter,"Noto Sans SC",sans-serif;letter-spacing:.12em;color:var(--muted);pointer-events:none}
+  .chat-ui.phase1-chat::after{content:"DEEPSEEK";position:absolute;right:16px;bottom:13px;font:800 8px/1 Inter,"Noto Sans SC",sans-serif;letter-spacing:.12em;color:var(--muted);pointer-events:none}
   .chat-head{position:relative;z-index:2;align-items:center}
   .chat-status{color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
   .chat-messages{display:flex;flex-direction:column;gap:10px;overflow:auto;max-height:255px;padding:8px 2px 10px;scrollbar-width:thin}
@@ -318,7 +321,7 @@
   .feedback-intro{padding:34px;min-height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
   .feedback-intro::after{content:"";position:absolute;width:210px;height:210px;border:1px solid var(--line);border-radius:50%;right:-75px;bottom:-78px}
   .feedback-kicker{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-  .feedback-intro h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(36px,4vw,58px);line-height:.96;letter-spacing:-.05em;margin:24px 0 0;max-width:8ch}
+  .feedback-intro h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.4vw,46px);line-height:1.18;letter-spacing:-.03em;margin:24px 0 0;max-width:100%;text-wrap:balance}
   .feedback-intro p{color:var(--muted);max-width:42ch;line-height:1.8;margin:20px 0 0}
   .feedback-meta{display:grid;gap:8px;margin-top:34px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
   .feedback-meta span{display:flex;align-items:center;gap:9px}
@@ -349,7 +352,7 @@
 
   .contact-grid{display:grid;grid-template-columns:1fr .72fr;gap:18px}
   .contact-panel{padding:34px}
-  .contact-panel h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(36px,4vw,58px);line-height:.96;letter-spacing:-.05em;margin:0;max-width:9ch}
+  .contact-panel h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.4vw,46px);line-height:1.18;letter-spacing:-.03em;margin:0;max-width:100%;text-wrap:balance}
   .contact-panel p{color:var(--muted);max-width:58ch;line-height:1.8;margin:20px 0 30px}
   .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .field{display:flex;flex-direction:column;gap:7px}
@@ -460,7 +463,7 @@
     .nav-links a{padding:10px 6px;min-height:44px}
     .hero-art-wrap{overflow:clip}
     .hero{grid-template-columns:1fr;gap:45px;min-height:auto;padding-top:75px}
-    .hero-title{max-width:11ch}
+    .hero-title{max-width:900px}
     .hero-art-wrap{min-height:500px}
     .section-head{grid-template-columns:1fr;gap:12px}
     .about-grid,.avatar-card,.contact-grid{grid-template-columns:1fr}
@@ -472,7 +475,7 @@
     .nav{min-height:70px}
     .nav-cta{display:none}
     .hero{padding:65px 0 70px}
-    .hero-title{font-size:clamp(48px,16vw,78px)}
+    .hero-title{font-size:clamp(34px,8.5vw,54px)}
     .hero-deck{font-size:15px}
     .hero-art-wrap{min-height:410px}
     .hero-panel{border-radius:22px}
@@ -538,7 +541,7 @@
     <header class="hero site-shell">
       <div class="hero-copy reveal">
         <div class="eyebrow" data-i18n="hero.kicker">Biomedical Engineering · BICs</div>
-        <h1 class="hero-title"><span data-scramble data-i18n="hero.h1">CURIOUS ABOUT BIOLOGY. DRAWN TO COMPUTATION.</span><span class="scramble-cursor" aria-hidden="true"></span></h1>
+        <h1 class="hero-title"><span data-scramble data-i18n="hero.h1">CURIOUS ABOUT BIOLOGY, DRAWN TO COMPUTATION</span><span class="scramble-cursor" aria-hidden="true"></span></h1>
         <p class="hero-deck" data-i18n="hero.sub">I'm Shen Zeyu — Jeremy. Still finding my footing in biomedical engineering, and just as happy talking badminton as biology.</p>
         <div class="signature-phrase" aria-label="Personal tagline"><span class="signature-dot"></span><span data-i18n="hero.signature">Curious about biology. Drawn to computation.</span></div>
         <div class="hero-meta">
@@ -589,7 +592,7 @@
         <div class="section-head reveal">
           <div class="section-index">01 / <span data-i18n="about.kicker">About</span></div>
           <div>
-            <h2 class="section-title" data-i18n="about.title">A little context.</h2>
+            <h2 class="section-title" data-i18n="about.title">A little context</h2>
             <p class="section-intro" data-i18n="about.intro">A BME undergraduate in the BICs direction, still exploring where biology, computation and everyday curiosity take me.</p>
           </div>
         </div>
@@ -618,7 +621,7 @@
         <div class="section-head reveal">
           <div class="section-index">02 / <span data-i18n="interests.kicker">Interests</span></div>
           <div>
-            <h2 class="section-title" data-i18n="interests.title">Outside the syllabus.</h2>
+            <h2 class="section-title" data-i18n="interests.title">Outside the syllabus</h2>
             <p class="section-intro" data-i18n="interests.intro">The non-academic tabs that stay open in my head.</p>
           </div>
         </div>
@@ -641,7 +644,7 @@
           <article class="field-note-card reveal">
             <div class="field-note-top"><span data-i18n="fieldnote.issue">PERSONAL EDITORIAL / 01</span><span>2026</span></div>
             <div class="field-note-body">
-              <div class="field-note-phrase" data-i18n="fieldnote.title">Somewhere between semesters.</div>
+              <div class="field-note-phrase" data-i18n="fieldnote.title">Somewhere between semesters</div>
               <p data-i18n="fieldnote.body">A small visual note about life outside the syllabus — learning, moving, listening, and making room for curiosity.</p>
             </div>
             <div class="field-note-foot"><span>JEREMY SHEN</span><span>BME × BICs</span></div>
@@ -655,26 +658,26 @@
         <div class="section-head reveal">
           <div class="section-index">03 / <span data-i18n="avatar.kicker">Talk to me</span></div>
           <div>
-            <h2 class="section-title" data-i18n="avatar.title">Ask Jeremy.</h2>
-            <p class="section-intro" data-i18n="avatar.intro">A small first step toward a digital version of me — local, transparent, and built around what I actually know about myself.</p>
+            <h2 class="section-title" data-i18n="avatar.title">Ask Jeremy</h2>
+            <p class="section-intro" data-i18n="avatar.intro">A digital guide to my studies, interests and learning, grounded in the personal information I have shared.</p>
           </div>
         </div>
         <div class="avatar-card phase1 reveal">
           <div class="avatar-copy">
-            <span class="status" data-i18n="avatar.badge">PHASE 01 · LOCAL</span>
-            <h3 data-i18n="avatar.heading">Ask me anything about me.</h3>
-            <p data-i18n="avatar.note">This first version uses a small local knowledge base and preset intent matching. It is not a live LLM, and it will not invent research, awards, papers, or experiences I have not actually shared.</p>
-            <div class="avatar-kicker"><span class="live-dot"></span><span data-i18n="avatar.local">LOCAL KNOWLEDGE · NO API</span></div>
-            <div class="avatar-note-small" data-i18n="avatar.tip">Try a preset question first, then type your own. Unknown questions are answered honestly instead of being guessed.</div>
+            <span class="status" data-i18n="avatar.badge">DEEPSEEK · AI AVATAR</span>
+            <h3 data-i18n="avatar.heading">Ask me anything about me</h3>
+            <p data-i18n="avatar.note">Replies are generated by DeepSeek using my shared profile. This is an AI representation, and it may make mistakes. It cannot make promises on my behalf.</p>
+            <div class="avatar-kicker"><span class="live-dot"></span><span data-i18n="avatar.local">PERSONAL PROFILE · AI REPLIES</span></div>
+            <div class="avatar-note-small" data-i18n="avatar.tip">Ask a question or try a suggestion below. Your message and recent conversation are sent to DeepSeek to generate a reply. Please avoid sensitive information.</div>
           </div>
           <div class="chat-ui phase1-chat" aria-label="Jeremy digital avatar chat">
-            <div class="chat-head"><span><span class="chat-dot"></span>JEREMY.AI</span><span class="chat-status" data-i18n="avatar.status">PHASE 01 / LOCAL</span></div>
-            <div class="chat-messages" id="avatarMessages" aria-live="polite">
-              <div class="chat-msg avatar" data-avatar-initial="true" data-i18n="avatar.msg">Hey — I'm Jeremy's first local digital avatar. Ask me about my study, interests, learning style, or what I'm exploring right now.</div>
+            <div class="chat-head"><span><span class="chat-dot"></span>JEREMY.AI</span><span class="chat-status" data-i18n="avatar.status">AI CHAT</span></div>
+            <div class="chat-messages" id="avatarMessages" role="log" aria-live="polite" aria-relevant="additions text">
+              <div class="chat-msg avatar" data-avatar-initial="true" data-i18n="avatar.msg">Hi — I’m Jeremy’s AI avatar. Ask about my studies, interests or learning style. If my profile does not cover something, I’ll say so.</div>
             </div>
             <div class="avatar-presets" id="avatarPresets" aria-label="Preset questions"></div>
             <form class="chat-input phase1-input" id="avatarForm">
-              <input id="avatarInput" type="text" autocomplete="off" data-i18n-placeholder="avatar.inputPlaceholder" placeholder="Ask something about Jeremy...">
+              <input id="avatarInput" aria-label="Ask Jeremy" maxlength="1000" type="text" autocomplete="off" data-i18n-placeholder="avatar.inputPlaceholder" placeholder="Ask something about Jeremy...">
               <button id="avatarSend" type="submit" data-i18n="avatar.send">Send</button>
             </form>
           </div>
@@ -687,7 +690,7 @@
         <div class="section-head reveal">
           <div class="section-index">04 / <span data-i18n="feedback.kicker">Feedback</span></div>
           <div>
-            <h2 class="section-title" data-i18n="feedback.title">Tell me what you think.</h2>
+            <h2 class="section-title" data-i18n="feedback.title">Tell me what you think</h2>
             <p class="section-intro" data-i18n="feedback.intro">This is a small feedback channel for the site. Your note helps me see what works, what feels unclear, and what should change next.</p>
           </div>
         </div>
@@ -695,7 +698,7 @@
           <article class="feedback-intro reveal">
             <div>
               <div class="feedback-kicker" data-i18n="feedback.kickerSmall">SITE FEEDBACK / 01</div>
-              <h3 data-i18n="feedback.heading">Make the next version better.</h3>
+              <h3 data-i18n="feedback.heading">Make the next version better</h3>
               <p data-i18n="feedback.copy">You do not need to write much. A specific sentence about the layout, content, interaction, or mobile experience is already useful.</p>
             </div>
             <div class="feedback-meta">
@@ -708,7 +711,7 @@
           <div class="feedback-panel reveal">
             <div class="feedback-panel-top">
               <div>
-                <h3 class="feedback-panel-title" data-i18n="feedback.formTitle">Leave a note.</h3>
+                <h3 class="feedback-panel-title" data-i18n="feedback.formTitle">Leave a note</h3>
                 <span class="feedback-demo-badge" data-i18n="feedback.demoBadge">LIVE MODE · SUPABASE</span>
               </div>
               <div class="feedback-status"><span class="feedback-status-dot"></span><span data-i18n="feedback.status">SUPABASE / CONNECTED</span></div>
@@ -765,13 +768,13 @@
         <div class="section-head reveal">
           <div class="section-index">05 / <span data-i18n="contact.kicker">Contact</span></div>
           <div>
-            <h2 class="section-title" data-i18n="contact.title">Say hello.</h2>
+            <h2 class="section-title" data-i18n="contact.title">Say hello</h2>
             <p class="section-intro" data-i18n="contact.intro">Have an idea, a question, or just want to say hi? Send it straight from this page.</p>
           </div>
         </div>
         <div class="contact-grid">
           <div class="contact-panel reveal">
-            <h3 data-i18n="contact.heading">Let's start a conversation.</h3>
+            <h3 data-i18n="contact.heading">Let's start a conversation</h3>
             <p data-i18n="contact.copy">Fill in the form below. Your note will be delivered directly to my inbox.</p>
             <form class="contact-form" id="contactForm" action="https://formsubmit.co/shenzeyu070918@gmail.com" method="POST">
               <input type="hidden" name="_subject" value="New message from Jeremy Shen website">
@@ -826,11 +829,16 @@
 
   const translations = {
     en: {
+      "avatar.error":"The chat service is temporarily unavailable. Please try again shortly.",
+      "avatar.timeout":"The reply took too long. Your question is kept below so you can retry.",
+      "avatar.limit":"Too many requests. Please take a short break before trying again.",
+      "avatar.unconfigured":"The AI service is not ready yet. Please try again later.",
+      "avatar.long":"Please keep your question within 1,000 characters.",
       'nav.about':'About','nav.interests':'Interests','nav.feedback':'Feedback','nav.contact':'Contact','nav.cta':'Get in touch',
-      'feedback.kicker':'Feedback','feedback.title':'Tell me what you think.','feedback.intro':'This is a small feedback channel for the site. Your note helps me see what works, what feels unclear, and what should change next.',
-      'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'Make the next version better.','feedback.copy':'You do not need to write much. A specific sentence about the layout, content, interaction, or mobile experience is already useful.',
+      'feedback.kicker':'Feedback','feedback.title':'Tell me what you think','feedback.intro':'This is a small feedback channel for the site. Your note helps me see what works, what feels unclear, and what should change next.',
+      'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'Make the next version better','feedback.copy':'You do not need to write much. A specific sentence about the layout, content, interaction, or mobile experience is already useful.',
       'feedback.meta1':'Short and specific is perfect.','feedback.meta2':'No account needed.','feedback.meta3':'Sent after a successful submission.',
-      'feedback.formTitle':'Leave a note.','feedback.demoBadge':'VISITOR FEEDBACK','feedback.status':'READY TO SUBMIT',
+      'feedback.formTitle':'Leave a note','feedback.demoBadge':'VISITOR FEEDBACK','feedback.status':'READY TO SUBMIT',
       'feedback.form.nickname':'Nickname','feedback.form.relationship':'Relationship','feedback.form.relationship.placeholder':'Choose one','feedback.form.relationship.friend':'Friend','feedback.form.relationship.classmate':'Classmate','feedback.form.relationship.teacher':'Teacher','feedback.form.relationship.stranger':'Just visiting',
       'feedback.form.device':'Device','feedback.form.device.placeholder':'Choose one','feedback.form.device.desktop':'Desktop','feedback.form.device.mobile':'Mobile','feedback.form.device.tablet':'Tablet',
       'feedback.form.message':'Your feedback','feedback.form.messagePlaceholder':'What should I keep, change, or improve?','feedback.form.submit':'Send feedback ↗',
@@ -839,36 +847,41 @@
       'feedback.status.empty':'Please complete all fields.','feedback.status.saved':'Feedback sent successfully.','feedback.status.error':'Something went wrong. Please try again.','feedback.status.sending':'Sending…','feedback.status.success':'Thanks — your feedback was sent.','feedback.status.network':'Network issue — please check your connection and try again.','feedback.status.server':'The feedback service is temporarily unavailable. Please try again shortly.',
       'bgm.play':'Play BGM','bgm.pause':'Pause BGM','bgm.state':'BACKGROUND MUSIC','bgm.unavailable':'BGM unavailable','bgm.unavailableState':'ADD A TRACK TO ENABLE','bgm.ariaPlay':'Play background music','bgm.ariaPause':'Pause background music','bgm.ariaUnavailable':'Background music unavailable',
 
-      'hero.kicker':'Biomedical Engineering · BICs','hero.h1':'CURIOUS ABOUT BIOLOGY. DRAWN TO COMPUTATION.',
+      'hero.kicker':'Biomedical Engineering · BICs','hero.h1':'CURIOUS ABOUT BIOLOGY, DRAWN TO COMPUTATION',
       'hero.sub':"I'm Shen Zeyu — Jeremy. Still finding my footing in biomedical engineering, and just as happy talking badminton as biology.",'hero.signature':'Curious about biology. Drawn to computation.',
       'hero.tag1':'Biomedical Engineering','hero.tag2':'Badminton','hero.tag3':'Stardew Valley','hero.cta1':'More about me ↘','hero.cta2':'Contact me',
-      'about.kicker':'About','about.title':'A little context.','about.intro':'A BME undergraduate in the BICs direction, still exploring where biology, computation and everyday curiosity take me.',
+      'about.kicker':'About','about.title':'A little context','about.intro':'A BME undergraduate in the BICs direction, still exploring where biology, computation and everyday curiosity take me.',
       'about.identity.label':'Identity','about.identity.value':'Biomedical Engineering · BICs undergraduate',
       'about.direction.value':'Still exploring which corner of biomedical engineering excites me most. I like learning by moving between ideas, projects and the things I am simply curious about.',
       'about.signature':'Jeremy Shen / 2026','about.highlight.label':'Highlight','about.highlight.value':'Usually somewhere near a badminton court.',
       'about.highlight.detail':'Between coursework and experiments, staying active is my reset button.','about.city.label':'City','about.city.value':'Add your city','about.city.detail':'Placeholder kept intentionally for now.',
-      'interests.kicker':'Interests','interests.title':'Outside the syllabus.','interests.intro':'The non-academic tabs that stay open in my head.',
+      'interests.kicker':'Interests','interests.title':'Outside the syllabus','interests.intro':'The non-academic tabs that stay open in my head.',
       'interests.games.label':'Games','interests.games.value':'Currently deep in Stardew Valley — building the perfect farm, one season at a time.',
       'interests.anime.label':'Anime','interests.anime.value':'Into high-energy shounen — Attack on Titan and Demon Slayer are favorites.',
       'interests.music.label':'Music','interests.music.value':'R&B on rotation, plus light instrumental tracks for focus.',
       'interests.sports.label':'Sports','interests.sports.value':'Badminton, and staying active in general.',
-      'fieldnote.kicker':'Field note','fieldnote.issue':'PERSONAL EDITORIAL / 01','fieldnote.title':'Somewhere between semesters.','fieldnote.body':'A small visual note about life outside the syllabus — learning, moving, listening, and making room for curiosity.',
-      'avatar.kicker':'Talk to me','avatar.title':'Ask Jeremy.','avatar.intro':'A small first step toward a digital version of me — local, transparent, and built around what I actually know about myself.',
-      'avatar.badge':'PHASE 01 · LOCAL','avatar.heading':'Ask me anything about me.','avatar.note':'This first version uses a small local knowledge base and preset intent matching. It is not a live LLM, and it will not invent research, awards, papers, or experiences I have not actually shared.',
-      'avatar.local':'LOCAL KNOWLEDGE · NO API','avatar.tip':'Try a preset question first, then type your own. Unknown questions are answered honestly instead of being guessed.','avatar.status':'PHASE 01 / LOCAL',
-      'avatar.msg':"Hey — I'm Jeremy's first local digital avatar. Ask me about my study, interests, learning style, or what I'm exploring right now.",'avatar.inputPlaceholder':'Ask something about Jeremy...','avatar.send':'Send',
+      'fieldnote.kicker':'Field note','fieldnote.issue':'PERSONAL EDITORIAL / 01','fieldnote.title':'Somewhere between semesters','fieldnote.body':'A small visual note about life outside the syllabus — learning, moving, listening, and making room for curiosity.',
+      'avatar.kicker':'Talk to me','avatar.title':'Ask Jeremy','avatar.intro':"A digital guide to my studies, interests and learning, grounded in the personal information I have shared.",
+      'avatar.badge':"DEEPSEEK · AI AVATAR",'avatar.heading':'Ask me anything about me','avatar.note':"Replies are generated by DeepSeek using my shared profile. This is an AI representation, and it may make mistakes. It cannot make promises on my behalf.",
+      'avatar.local':"PERSONAL PROFILE · AI REPLIES",'avatar.tip':"Ask a question or try a suggestion below. Your message and recent conversation are sent to DeepSeek to generate a reply. Please avoid sensitive information.",'avatar.status':"AI CHAT",
+      'avatar.msg':"Hi — I’m Jeremy’s AI avatar. Ask about my studies, interests or learning style. If my profile does not cover something, I’ll say so.",'avatar.inputPlaceholder':'Ask something about Jeremy...','avatar.send':'Send',
       'avatar.you':'You','avatar.thinking':'Thinking…','avatar.unknown':"Honestly, I don't know enough about that yet. I don't want to make up an answer.",
       'avatar.presets.who':'Who is Jeremy?','avatar.presets.bme':'Why did you choose Intelligent Medical Engineering?','avatar.presets.interest':'What are you interested in right now?','avatar.presets.learn':'How do you learn new things?','avatar.presets.badminton':'Why do you like badminton?','avatar.presets.travel':'Why do you like travelling alone?',
-      'contact.kicker':'Contact','contact.title':'Say hello.','contact.intro':'Have an idea, a question, or just want to say hi? Send it straight from this page.','contact.heading':"Let's start a conversation.",'contact.copy':'Fill in the form below. Your note will be delivered directly to my inbox.',
+      'contact.kicker':'Contact','contact.title':'Say hello','contact.intro':'Have an idea, a question, or just want to say hi? Send it straight from this page.','contact.heading':"Let's start a conversation",'contact.copy':'Fill in the form below. Your note will be delivered directly to my inbox.',
       'contact.form.name':'Name','contact.form.email':'Email','contact.form.message':'Message','contact.form.submit':'Send message ↗','contact.rows.email':'Email','contact.rows.github':'GitHub','contact.rows.linkedin':'LinkedIn','contact.rows.linkedin.pending':'Profile link pending',
       'formStatus.empty':'Please fill in every field.','formStatus.sending':'Sending your message…','footer.text':'Jeremy Shen — Biomedical Engineering'
     },
     zh: {
+      "avatar.error":"对话服务暂时不可用，请稍后再试。",
+      "avatar.timeout":"这次回答等待超时，问题已保留在输入框，可以稍后重试。",
+      "avatar.limit":"提问次数较多，请稍后再试。",
+      "avatar.unconfigured":"AI 服务尚未准备好，请稍后再试。",
+      "avatar.long":"请将问题控制在 1000 个字符以内。",
       'nav.about':'关于','nav.interests':'兴趣','nav.feedback':'反馈','nav.contact':'联系','nav.cta':'联系我',
-      'feedback.kicker':'反馈','feedback.title':'告诉我你的想法。','feedback.intro':'这是一个给网站访客的反馈入口。你的留言会帮助我判断哪些地方有效、哪些地方不清晰，以及下一版应该改什么。',
-      'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'一起把下一版做得更好。','feedback.copy':'不用写很多。一句具体的布局、内容、交互或移动端体验反馈，对我来说就已经很有用了。',
+      'feedback.kicker':'反馈','feedback.title':'告诉我你的想法','feedback.intro':'这是一个给网站访客的反馈入口。你的留言会帮助我判断哪些地方有效、哪些地方不清晰，以及下一版应该改什么。',
+      'feedback.kickerSmall':'SITE FEEDBACK / 01','feedback.heading':'一起把下一版做得更好','feedback.copy':'不用写很多。一句具体的布局、内容、交互或移动端体验反馈，对我来说就已经很有用了。',
       'feedback.meta1':'简短、具体就很好。','feedback.meta2':'不需要注册。','feedback.meta3':'提交成功后才算送达。',
-      'feedback.formTitle':'留下一句话。','feedback.demoBadge':'访客反馈','feedback.status':'等待提交',
+      'feedback.formTitle':'留下一句话','feedback.demoBadge':'访客反馈','feedback.status':'等待提交',
       'feedback.form.nickname':'昵称','feedback.form.relationship':'你和我的关系','feedback.form.relationship.placeholder':'请选择','feedback.form.relationship.friend':'朋友','feedback.form.relationship.classmate':'同学','feedback.form.relationship.teacher':'老师','feedback.form.relationship.stranger':'路过看看',
       'feedback.form.device':'设备','feedback.form.device.placeholder':'请选择','feedback.form.device.desktop':'电脑','feedback.form.device.mobile':'手机','feedback.form.device.tablet':'平板',
       'feedback.form.message':'你的反馈','feedback.form.messagePlaceholder':'哪些地方应该保留、修改或继续优化？','feedback.form.submit':'发送反馈 ↗',
@@ -877,26 +890,26 @@
       'feedback.status.empty':'请填写完整信息。','feedback.status.saved':'反馈发送成功。','feedback.status.error':'提交时出了点问题，请再试一次。','feedback.status.sending':'正在发送…','feedback.status.success':'谢谢，你的反馈已经发送。','feedback.status.network':'网络连接似乎有问题，请检查后重试。','feedback.status.server':'反馈服务暂时不可用，请稍后再试。',
       'bgm.play':'播放 BGM','bgm.pause':'暂停 BGM','bgm.state':'背景音乐','bgm.unavailable':'BGM 暂不可用','bgm.unavailableState':'添加音乐后即可启用','bgm.ariaPlay':'播放背景音乐','bgm.ariaPause':'暂停背景音乐','bgm.ariaUnavailable':'背景音乐暂不可用',
 
-      'hero.kicker':'生物医学工程 · BICs方向','hero.h1':'对生命保持好奇，对计算保持探索。',
+      'hero.kicker':'生物医学工程 · BICs方向','hero.h1':'对生命保持好奇，对计算保持探索',
       'hero.sub':'我是沈泽宇，Jeremy。正在生物医学工程的世界里寻找自己的方向，也同样喜欢聊羽毛球、游戏和生活。','hero.signature':'对生命保持好奇，对计算保持探索。',
       'hero.tag1':'生物医学工程','hero.tag2':'羽毛球','hero.tag3':'星露谷物语','hero.cta1':'更多关于我 ↘','hero.cta2':'联系我',
-      'about.kicker':'关于','about.title':'先认识一下。','about.intro':'生物医学工程 BICs 方向本科生，还在探索生物、计算与日常好奇心最终会把我带向哪里。',
+      'about.kicker':'关于','about.title':'先认识一下','about.intro':'生物医学工程 BICs 方向本科生，还在探索生物、计算与日常好奇心最终会把我带向哪里。',
       'about.identity.label':'身份','about.identity.value':'生物医学工程 · BICs 本科生',
       'about.direction.value':'还在摸索最让我兴奋的专业方向。我喜欢在不同想法、项目和单纯的好奇心之间来回切换着学习。',
       'about.signature':'Jeremy Shen / 2026','about.highlight.label':'日常','about.highlight.value':'大多数时候，你能在羽毛球场附近找到我。',
       'about.highlight.detail':'课业与学习之外，运动是我最喜欢的重启方式。','about.city.label':'城市','about.city.value':'添加城市','about.city.detail':'暂时保留为占位。',
-      'interests.kicker':'兴趣','interests.title':'课表之外。','interests.intro':'脑海里一直没有关闭的那些非学术标签页。',
+      'interests.kicker':'兴趣','interests.title':'课表之外','interests.intro':'脑海里一直没有关闭的那些非学术标签页。',
       'interests.games.label':'游戏','interests.games.value':'最近沉迷星露谷物语，一季一季把农场慢慢变成理想的样子。',
       'interests.anime.label':'番剧','interests.anime.value':'喜欢热血少年番，进击的巨人和鬼灭之刃都是喜欢的作品。',
       'interests.music.label':'音乐','interests.music.value':'歌单常驻 R&B，也会听轻音乐帮助专注。','interests.sports.label':'运动','interests.sports.value':'羽毛球，以及保持运动这件事。',
-      'fieldnote.kicker':'现场笔记','fieldnote.issue':'PERSONAL EDITORIAL / 01','fieldnote.title':'在学期与学期之间。','fieldnote.body':'一则关于课表之外生活的小型视觉笔记：学习、运动、聆听，以及为好奇心留出空间。',
-      'avatar.kicker':'和我聊聊','avatar.title':'来问 Jeremy。','avatar.intro':'这是数字分身的第一步：本地、透明，并且只围绕我真正知道的自己来回答。',
-      'avatar.badge':'PHASE 01 · 本地版','avatar.heading':'关于我的事，都可以问。','avatar.note':'这一版使用本地知识库和预设意图匹配，不连接实时大模型，也不会编造我没有经历过的科研、论文、竞赛、奖项或能力。',
-      'avatar.local':'LOCAL KNOWLEDGE · 无 API','avatar.tip':'可以先点一个预设问题，再自己输入问题。遇到我目前不知道的内容，我会直接说不知道，而不是猜。','avatar.status':'PHASE 01 / LOCAL',
-      'avatar.msg':'嗨，这是 Jeremy 的第一版本地数字分身。你可以问我的专业、兴趣、学习方式，或者我现在正在探索什么。','avatar.inputPlaceholder':'问一个关于 Jeremy 的问题...','avatar.send':'发送',
+      'fieldnote.kicker':'现场笔记','fieldnote.issue':'PERSONAL EDITORIAL / 01','fieldnote.title':'在学期与学期之间','fieldnote.body':'一则关于课表之外生活的小型视觉笔记：学习、运动、聆听，以及为好奇心留出空间。',
+      'avatar.kicker':'和我聊聊','avatar.title':'来问 Jeremy','avatar.intro':"根据我分享的个人资料，聊聊我的专业、兴趣和学习方式。",
+      'avatar.badge':"DEEPSEEK · 数字分身",'avatar.heading':'关于我的事，都可以问','avatar.note':"回答由 DeepSeek 根据我分享的资料生成。这是 AI 分身，回答可能有误，也不能代替我作出承诺。",
+      'avatar.local':"个人资料 · AI 回答",'avatar.tip':"可以直接提问，也可以点击下方推荐问题。你的问题和近期对话会发送给 DeepSeek 生成回答，请勿输入敏感信息。",'avatar.status':"AI 对话",
+      'avatar.msg':"嗨，我是 Jeremy 的 AI 分身。可以问我的专业、兴趣和学习方式；资料里没有的信息，我会直接说明。",'avatar.inputPlaceholder':'问一个关于 Jeremy 的问题...','avatar.send':'发送',
       'avatar.you':'你','avatar.thinking':'思考中…','avatar.unknown':'坦白说，我现在还没有足够的信息回答这个问题。我不想为了回答而编一个答案。',
       'avatar.presets.who':'Jeremy 是谁？','avatar.presets.bme':'为什么选择智能医学工程？','avatar.presets.interest':'你现在对什么感兴趣？','avatar.presets.learn':'你怎么学习新东西？','avatar.presets.badminton':'为什么喜欢羽毛球？','avatar.presets.travel':'为什么喜欢一个人旅行？',
-      'contact.kicker':'联系','contact.title':'来打个招呼。','contact.intro':'有想法、有问题，或者单纯想打个招呼？直接在这里发给我。','contact.heading':'一起聊点什么。','contact.copy':'填写下面的表单，留言会直接送到我的邮箱。',
+      'contact.kicker':'联系','contact.title':'来打个招呼','contact.intro':'有想法、有问题，或者单纯想打个招呼？直接在这里发给我。','contact.heading':'一起聊点什么','contact.copy':'填写下面的表单，留言会直接送到我的邮箱。',
       'contact.form.name':'姓名','contact.form.email':'邮箱','contact.form.message':'留言','contact.form.submit':'发送消息 ↗','contact.rows.email':'邮箱','contact.rows.github':'GitHub','contact.rows.linkedin':'LinkedIn','contact.rows.linkedin.pending':'待补充个人主页链接',
       'formStatus.empty':'请填写所有字段。','formStatus.sending':'正在发送消息…','footer.text':'沈泽宇 Jeremy Shen — 生物医学工程'
     }
@@ -951,145 +964,94 @@
   langBtn.addEventListener('click',()=>applyLang(currentLang==='en'?'zh':'en',true));
   applyLang(currentLang,false);
 
-  /* ================= Digital Avatar — Phase 01 ================= */
-  const jeremyKnowledge = {
-    identity: {
-      en: "I'm Shen Zeyu — Jeremy. I'm an undergraduate student in Intelligent Medical Engineering at Tianjin University–The Hong Kong Polytechnic University Shenzhen Campus / Future Technology College.",
-      zh: "我是沈泽宇，Jeremy。目前是天津大学—香港理工大学深圳未来技术学院的智能医学工程本科生。"
-    },
-    bme: {
-      en: "I chose Intelligent Medical Engineering partly because I see good development space in the field, and because it sits at an interesting frontier between AI, biology, medicine and engineering. I'm still exploring which direction fits me best.",
-      zh: "我选择智能医学工程，一部分原因是我觉得这个方向有不错的发展空间，另一部分是它处在 AI、生物、医学和工程的交叉前沿。我现在还在继续探索最适合自己的具体方向。"
-    },
-    bics: {
-      en: "BICs is the direction I study in: Biomedical Information and Computing. I think of it as a place where biological and medical problems can meet computation and information processing.",
-      zh: "BICs 是我学习的方向，指 Biomedical Information and Computing，也就是生物医学信息与计算。我理解它是让生物医学问题与计算、信息处理真正连接起来的一条路线。"
-    },
-    aiMedicine: {
-      en: "What interests me about AI × medicine is that medicine has a lot of real-world medical and imaging data. AI can help collect, process and analyze that information, and potentially turn it into something useful for actual healthcare problems. That's a direction I find worth exploring.",
-      zh: "我对 AI × 医学感兴趣，是因为医学里有大量真实的医学数据和影像数据。AI 可以帮助处理、分析这些信息，并进一步把它们转化成对真实医疗问题有价值的结果。这是我觉得值得继续探索的方向。"
-    },
-    interests: {
-      en: "Right now I'm exploring medical imaging × AI and medical data × AI, but I don't treat either as a confirmed long-term research direction yet. Outside study, I like badminton, games, anime and music.",
-      zh: "现在我比较感兴趣的是医疗影像 × AI、医疗数据 × AI，不过这还不是我已经确定下来的长期科研方向。学习之外，我喜欢羽毛球、游戏、番剧和音乐。"
-    },
-    learning: {
-      en: "I usually learn through school courses, online tutorials and resources, self-exploration, and talking with AI. When I get stuck, I ask someone who knows — I used to ask teachers more often, and now I ask AI more often. I see AI as a learning assistant that helps me find what I don't understand.",
-      zh: "我一般会通过学校课程、网上教程和资料、自我探索，以及和 AI 聊天来学习。遇到不会的东西，我会去问懂的人——以前更多问老师，现在更多会问 AI。我把 AI 看成一个学习助手，帮助我定位自己真正没搞懂的地方。"
-    },
-    badminton: {
-      en: "I like badminton because the interaction is strong: I can play with classmates, move around a lot, and just have fun. Exercise also helps me relax and keep in good physical condition.",
-      zh: "我喜欢羽毛球，是因为它的互动性很强，可以和同学一起打，也需要不断移动，单纯就是很好玩。运动对我来说也是一种放松方式，也能让我保持不错的身体状态。"
-    },
-    travel: {
-      en: "I like travelling because I'm naturally curious about new places. I prefer travelling alone, making very little plan, and seeing where the road takes me. I usually prefer natural scenery to heavily planned cultural or sightseeing routes.",
-      zh: "我喜欢旅行，是因为我本身就对新地方很好奇。我更喜欢一个人旅行，少做甚至不做详细计划，走到哪算哪。相比高度规划的人文景点路线，我通常更喜欢自然风景。"
-    },
-    values: {
-      en: "I want to become myself rather than copy a fixed template. I value curiosity, continuous learning, willingness to try and make mistakes, sincerity, kindness, love of life, exercise and regular sleep. I also want to improve my knowledge, fitness and social skills.",
-      zh: "我想成为我自己，而不是照着一个固定模板去活。我看重持续学习、愿意尝试和犯错、好奇心、真诚、善良、热爱生活、运动和规律作息。我也想继续提升自己的知识、身体素质和社交能力。"
-    }
-  };
-
-  const presetQuestions = [
-    {id:'who', key:'avatar.presets.who', intent:'identity'},
-    {id:'bme', key:'avatar.presets.bme', intent:'bme'},
-    {id:'interest', key:'avatar.presets.interest', intent:'interests'},
-    {id:'learn', key:'avatar.presets.learn', intent:'learning'},
-    {id:'badminton', key:'avatar.presets.badminton', intent:'badminton'},
-    {id:'travel', key:'avatar.presets.travel', intent:'travel'}
-  ];
-
-  const intentPatterns = [
-    {intent:'identity', tests:['who are you','who is jeremy','tell me about jeremy','你是谁','jeremy是谁','沈泽宇是谁','介绍一下你']},
-    {intent:'bme', tests:['why did you choose','why intelligent medical','why bme','why biomedical','为什么选择智能医学工程','为什么选智能医学工程','为什么学智能医学']},
-    {intent:'bics', tests:['what is bics','what does bics mean','bics是什么','bics是什么意思','什么是bics','bic']},
-    {intent:'aiMedicine', tests:['ai medicine','ai × medicine','ai and medicine','medical ai','医学ai','ai医学','人工智能 医学','医疗人工智能']},
-    {intent:'interests', tests:['what are you interested','what are you exploring','current interests','你现在对什么感兴趣','最近对什么感兴趣','你在探索什么','目前兴趣']},
-    {intent:'learning', tests:['how do you learn','how do you study','learning style','你怎么学习','怎么学习新东西','学习方式','如何学习']},
-    {intent:'badminton', tests:['why badminton','why do you like badminton','羽毛球为什么','为什么喜欢羽毛球','为什么打羽毛球','你为什么喜欢羽毛球']},
-    {intent:'travel', tests:['why travel alone','why solo travel','travelling alone','一个人旅行','为什么喜欢旅行','为什么喜欢一个人旅行','为什么独自旅行']},
-    {intent:'values', tests:['what kind of person','what do you value','what makes someone great','未来想成为什么人','你想成为什么样的人','你看重什么','价值观','成为怎样的人']}
-  ];
-
+  /* ================= Digital Avatar — DeepSeek ================= */
   const avatarMessages = document.getElementById('avatarMessages');
   const avatarPresets = document.getElementById('avatarPresets');
   const avatarForm = document.getElementById('avatarForm');
   const avatarInput = document.getElementById('avatarInput');
   const avatarSend = document.getElementById('avatarSend');
-
-  function normalizeQuestion(text){
-    return text.toLowerCase().replace(/[“”‘’'"！？!?，。,.：:；;（）()【】\[\]—–-]/g,' ').replace(/\s+/g,' ').trim();
-  }
-
-  function classifyAvatarIntent(question){
-    const q = normalizeQuestion(question);
-    let best = null;
-    for(const item of intentPatterns){
-      for(const phrase of item.tests){
-        if(q.includes(normalizeQuestion(phrase))){
-          const score = normalizeQuestion(phrase).length;
-          if(!best || score > best.score) best = {intent:item.intent,score};
-        }
-      }
-    }
-    return best ? best.intent : null;
-  }
-
-  function getAvatarAnswer(question, lang){
-    const intent = classifyAvatarIntent(question);
-    if(!intent || !jeremyKnowledge[intent]) return translations[lang]['avatar.unknown'];
-    return jeremyKnowledge[intent][lang];
-  }
+  const avatarHistory = [];
+  let avatarBusy = false;
 
   function addAvatarMessage(text, role='avatar'){
     const el = document.createElement('div');
     el.className = `chat-msg ${role}`;
     el.textContent = text;
     avatarMessages.appendChild(el);
+    // Keep the displayed transcript bounded, as well as the API history.
+    while(avatarMessages.children.length > 41) avatarMessages.firstElementChild.remove();
     avatarMessages.scrollTop = avatarMessages.scrollHeight;
     return el;
   }
 
   function renderAvatarPresets(){
     if(!avatarPresets) return;
-    avatarPresets.innerHTML='';
-    const dict=translations[currentLang];
-    presetQuestions.forEach(item=>{
+    avatarPresets.replaceChildren();
+    ['who','bme','interest','learn','badminton','travel'].forEach(id=>{
       const btn=document.createElement('button');
       btn.type='button';
       btn.className='avatar-preset';
-      btn.textContent=dict[item.key]||item.key;
-      btn.dataset.intent=item.intent;
-      btn.addEventListener('click',()=>submitAvatarQuestion(btn.textContent,{intent:item.intent}));
+      btn.textContent=translations[currentLang]['avatar.presets.'+id];
+      btn.disabled=avatarBusy;
+      btn.addEventListener('click',()=>submitAvatarQuestion(btn.textContent));
       avatarPresets.appendChild(btn);
     });
   }
 
-  function submitAvatarQuestion(question, presetMeta=null){
-    const clean=question.trim();
-    if(!clean) return;
-    addAvatarMessage(clean,'user');
-    avatarInput.value='';
-    avatarSend.disabled=true;
-    const thinking=addAvatarMessage(translations[currentLang]['avatar.thinking'],'avatar typing');
-    window.setTimeout(()=>{
-      thinking.remove();
-      const answer = presetMeta?.intent && jeremyKnowledge[presetMeta.intent]
-        ? jeremyKnowledge[presetMeta.intent][currentLang]
-        : getAvatarAnswer(clean,currentLang);
-      addAvatarMessage(answer,'avatar');
-      avatarSend.disabled=false;
-      avatarInput.focus();
-    },320);
+  function setAvatarBusy(busy){
+    avatarBusy=busy;
+    avatarSend.disabled=busy;
+    avatarInput.readOnly=busy;
+    avatarForm.setAttribute('aria-busy',String(busy));
+    avatarPresets.querySelectorAll('button').forEach(btn=>{btn.disabled=busy;});
   }
 
-  if(avatarForm){
-    avatarForm.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      submitAvatarQuestion(avatarInput.value);
-    });
+  async function submitAvatarQuestion(question){
+    if(avatarBusy) return;
+    const clean=question.trim();
+    if(!clean) return;
+    const lang=currentLang;
+    const copy=translations[lang];
+    if(clean.length>1000){addAvatarMessage(copy['avatar.long']);return;}
+    addAvatarMessage(clean,'user');
+    avatarInput.value='';
+    setAvatarBusy(true);
+    const thinking=addAvatarMessage(copy['avatar.thinking'],'avatar typing');
+    const controller=new AbortController();
+    const timeout=setTimeout(()=>controller.abort(),35000);
+    try{
+      const response=await fetch(SUPABASE_CONFIG.url.replace(/\/$/,'')+'/functions/v1/jeremy-chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','apikey':SUPABASE_CONFIG.publishableKey},
+        signal:controller.signal,
+        body:JSON.stringify({language:lang,messages:[...avatarHistory.slice(-10),{role:'user',content:clean}]})
+      });
+      const data=await response.json().catch(()=>({}));
+      if(!response.ok){
+        const key=response.status===429?'limit':response.status===504?'timeout':data.error==='not_configured'?'unconfigured':'error';
+        throw Object.assign(new Error(key),{displayKey:key});
+      }
+      if(typeof data.reply!=='string'||!data.reply.trim()) throw new Error('Empty reply');
+      thinking.remove();
+      addAvatarMessage(data.reply);
+      avatarHistory.push({role:'user',content:clean},{role:'assistant',content:data.reply});
+      if(avatarHistory.length>10) avatarHistory.splice(0,avatarHistory.length-10);
+    }catch(error){
+      thinking.remove();
+      const key=error.name==='AbortError'?'timeout':(error.displayKey||'error');
+      addAvatarMessage(copy['avatar.'+key],'avatar error');
+      avatarInput.value=clean;
+    }finally{
+      clearTimeout(timeout);
+      setAvatarBusy(false);
+      avatarInput.focus();
+    }
   }
+
+  if(avatarForm) avatarForm.addEventListener('submit',e=>{
+    e.preventDefault();
+    submitAvatarQuestion(avatarInput.value);
+  });
   renderAvatarPresets();
   window.addEventListener('jeremy:langchange',renderAvatarPresets);
 
